@@ -1,0 +1,199 @@
+:root {
+  --primary: #1a365d;
+  --primary-light: #2c5282;
+  --accent: #c05621;
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --verde: #38a169;
+  --amarillo: #d69e2e;
+  --rojo: #e53e3e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: #2d3748;
+  line-height: 1.5;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+  padding: 1.25rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+header h1 { font-size: 1.35rem; font-weight: 600; }
+header p { font-size: .85rem; opacity: .9; margin-top: .25rem; }
+
+nav.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 1rem 2rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav.tabs button {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .875rem;
+  transition: all .15s;
+}
+
+nav.tabs button:hover { border-color: var(--primary-light); color: var(--primary); }
+nav.tabs button.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  font-size: .8rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+input, select, textarea {
+  padding: .5rem .65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: .9rem;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(44,82,130,.15);
+}
+
+.btn-row { display: flex; gap: .75rem; margin-top: 1rem; flex-wrap: wrap; }
+
+button.btn {
+  padding: .55rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-light); }
+.btn-secondary { background: #edf2f7; color: #2d3748; }
+.btn-accent { background: var(--accent); color: #fff; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+}
+
+th, td {
+  padding: .6rem .75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th { background: #edf2f7; font-weight: 600; color: var(--primary); }
+
+.badge {
+  display: inline-block;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+.badge-archivo { background: #bee3f8; color: #2c5282; }
+.badge-prestada { background: #feebc8; color: #c05621; }
+.badge-desarchivada { background: #e9d8fd; color: #553c9a; }
+
+.alerta-verde { background: #c6f6d5; color: #22543d; }
+.alerta-amarillo { background: #fefcbf; color: #744210; }
+.alerta-rojo { background: #fed7d7; color: #742a2a; }
+
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  color: #fff;
+  font-size: .9rem;
+  z-index: 100;
+  animation: slideIn .3s ease;
+}
+
+.toast.ok { background: var(--verde); }
+.toast.err { background: var(--rojo); }
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.historial-list {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.historial-list li {
+  padding: .5rem 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: .85rem;
+}
+
+.historial-list .fecha { color: #718096; font-size: .75rem; }
+
+.empty { text-align: center; padding: 2rem; color: #a0aec0; }
+
+.arch-badge {
+  font-size: .7rem;
+  background: #e2e8f0;
+  padding: .15rem .4rem;
+  border-radius: 4px;
+  margin-left: .5rem;
+}
